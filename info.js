@@ -1,6 +1,7 @@
 var w = Math.min(screen.height*0.60,500),
 h = w,
 r = h*0.9,
+rmin = h * 0.2,
 x = d3.scale.linear().range([0, r]),
 y = d3.scale.linear().range([0, r]),
 p = 15,
@@ -70,7 +71,7 @@ var pack = scaled_pack(1.0);
 function load_data(chart_node,json_data,scale_var)
 {
     d3.json(json_data, function(data) {
-        pack.size([r*data.scale, r*data.scale]);
+        pack.size([(r-rmin)*data.scale+rmin, (r-rmin)*data.scale+rmin]);
         node = root = data;
         var nodes = pack.nodes(root);
         chart_node.selectAll("circle")
@@ -82,7 +83,7 @@ function load_data(chart_node,json_data,scale_var)
             .attr("cx", function(d) { return d.x; })
             .attr("cy", function(d) { return d.y; })
             .attr("r", function(d) { return d.r; })
-            .style("stroke-width",function(d) {if (d.children && !chart_dyn && d.children[0].children)
+            .style("stroke-width",function(d) {if (d.children && (d.children[0].children || d.children[1].children) )
                                                {return 0}; return 1;})
             .style("fill", function(d){return colorPicker(d.name)});
         
