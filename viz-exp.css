@@ -4,6 +4,7 @@
 #doe {display:none;}
 #dynamic {display:none;}
 #info {display:none;}
+#chart {display:none;}
 #hover_legend {display:none;}
 #hover_legend_ws {display:none;}
 #hover_legend_ds {display:none;}
@@ -106,6 +107,16 @@ div.chart {
   top: 180px;
   width:33%;
   height:482px;
+  text-align: center;
+}
+
+div.chart#waste {
+  top:10px;
+  text-align: center;
+}
+div.chart#cost {
+  top:10px;
+  text-align: center;
 }
 
 div.chart#chart1 {
