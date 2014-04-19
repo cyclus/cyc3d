@@ -36,16 +36,16 @@ function chart(dynamic,kind)
                     .interactive(willBeInteractive)
                     .useVoronoi(willUseVoronoi)
                     .showLegend(false)
+                    .forceX([946713600000, 4102473600000])
                     .color(["#1f77b4", "#aec7e8", "#ffbb78", "#2ca02c"])
                     .clipEdge(true);
-                
+
                 //Format x-axis labels with custom function.
                 chart.xAxis
-                    .axisLabel('Year')
-                    .tickFormat(function(d) { 
-                        return d3.time.format('%Y')(new Date(d)) 
-                    });
-                
+                    .tickValues([946713600000, 1738809360000, 2527749360000, 3316689360000, 4102473600000])
+                    .tickFormat(function(d) {return d3.time.format('%Y')(new Date(d))})
+                    .axisLabel('Year');
+
                 chart.yAxis
                     .axisLabel(yLabel)
                     .tickFormat(d3.format(',.f'));
