@@ -1,7 +1,7 @@
 import numpy as np
 
 MAX_COST = 28271.0
-MAX_WASTE = 469135.5172555465
+MAX_WASTE = 380835.65
 
 def diff_last(arr):
     """Takes the difference of the last column only, inplace."""
@@ -31,7 +31,8 @@ def load_kind(filename, kind):
     data = np.recfromcsv(filename, delimiter=',', filling_values=np.nan, 
                          case_sensitive=True, deletechars='', replace_space=' ')
     if kind == "waste":
-        diff_last(data)
+        data = data[list(data.dtype.names[:-1])]
+        #diff_last(data)
     elif kind == "cost":
         pass
     else:

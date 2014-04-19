@@ -15,7 +15,7 @@ function chart(dynamic,kind)
     var willUseVoronoi = false;
     
     var yLabel = 'Mass of Waste (Tonnes)';
-    var yMax = 500000;
+    var yMax = 400000;
     var json_data1 = 'raw-data-run5-waste.json';
     var json_data2 = 'raw-data-run3-waste.json';
     var json_data3 = 'raw-data-run1-waste.json';
@@ -42,7 +42,8 @@ function chart(dynamic,kind)
 
                 //Format x-axis labels with custom function.
                 chart.xAxis
-                    .tickValues([946713600000, 1738809360000, 2527749360000, 3316689360000, 4102473600000])
+                    .tickValues([946713600000, 1738809360000, 2527749360000, 
+                                 3316689360000, 4102473600000])
                     .tickFormat(function(d) {return d3.time.format('%Y')(new Date(d))})
                     .axisLabel('Year');
 
@@ -74,8 +75,6 @@ function chart(dynamic,kind)
     if (dynamic == true)
     {
         willHaveGuidelines = true;
-        //willBeInteractive = true;
-        //willUseVoronoi = true;
     }
 
     add_chart('#chart1',json_data1);

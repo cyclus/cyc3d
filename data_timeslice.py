@@ -91,8 +91,6 @@ def main_by_fc_year_cat():
             # prevents weird numpy segfault
             print(data, file=f)
         j['scale'] = max(j['scale'], sum([c['size'] for c in j['children'][-1]['children']]))
-        if ns.kind == 'waste':
-            outter_reproccessed(j['children'][-1]['children'])
     jfname = "info-{0}-{1}-{2}.json".format(os.path.splitext(ns.filename)[0], 
                                             "_".join(map(str, ns.years)), ns.kind)
     s = json.dumps(j)

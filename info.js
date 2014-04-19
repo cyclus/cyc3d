@@ -23,7 +23,8 @@ if (typeof String.prototype.startsWith != 'function') {
 var colorMap = {"Wet Storage": "#1f77b4",
                 "Dry Storage": "#aec7e8", 
                 "Repository": "#ffbb78",
-                "Reprocessed Fuel": "#2ca02c"
+                "Reprocessed Fuel": "#2ca02c",
+                "Waste Recycling": "#2ca02c"
                }
 
 function colorPicker(s) {
