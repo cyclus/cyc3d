@@ -5,6 +5,10 @@
 #dynamic {display:none;}
 #info {display:none;}
 #hover_legend {display:none;}
+#hover_legend_ws {display:none;}
+#hover_legend_ds {display:none;}
+#hover_legend_r {display:none;}
+#hover_legend_wr {display:none;}
 
 div.heading  {  
   position: absolute;
@@ -52,11 +56,36 @@ div.legend {
     left: 25%;
     width: 75%;
     height: 50px;
-    text-align: center;
+/*    text-align: center; */
+}
+
+div#legend_elem1 {
+  position:absolute;
+  left: 25%;
+  width:18.75%;
+  float: left;
+}
+div#legend_elem2 {
+  position:absolute;
+  left: 43.75%;
+  width:18.75%;
+  float: left;
+}
+div#legend_elem3 {
+  position:absolute;
+  left: 62.5%;
+  width:18.75%;
+  float: left;
+}
+div#legend_elem4 {
+  position:absolute;
+  left: 81.25%;
+  width:18.75%;
+  float: left;
 }
 
 
-div#hover_legend {
+div.hover_legend {
     position: absolute;
     top: 370px;
     left: 350px;
