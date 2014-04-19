@@ -1,10 +1,10 @@
 var w = Math.min(screen.height*0.60,500),
 h = w,
 r = h*0.9,
-rmin = h * 0.2,
+rmin = h * 0.3,
 x = d3.scale.linear().range([0, r]),
 y = d3.scale.linear().range([0, r]),
-p = 15,
+p = 35,
 label_rad = 25,
 node,
 root,
@@ -63,14 +63,14 @@ function scaled_pack(v) {
     var pack = d3.layout.pack()
         .size([r*v, r*v])
         .value(function(d) { return d.size;})
-        .padding(p);
+        .padding(chart_dyn ? (chart_type == "cost" ? 50 : 15) : (chart_type == "cost" ? 35 : 45));
     return pack
 }
 
-var pack = scaled_pack(1.0);
 
 function load_data(chart_node,json_data,scale_var)
 {
+    var pack = scaled_pack(1.0);
     d3.json(json_data, function(data) {
         pack.size([(r-rmin)*data.scale+rmin, (r-rmin)*data.scale+rmin]);
         node = root = data;
@@ -95,7 +95,9 @@ function load_data(chart_node,json_data,scale_var)
             .enter().append("svg:text")
             .attr("class", function(d) { return d.children ? "parent" : "child"; })
             .attr("x", function(d) { return d.x; })
-            .attr("y", function(d) { if (d.children) {return d.y - d.r - 20;}; if (d.r < 21.5) {return d.y + d.r + 10;}; return d.y; })
+            .attr("y", function(d) { if (d.children) {return d.y - d.r - 20;}; 
+                                     //if (d.r < 21.5) {return d.y + d.r + 10;}; 
+                                     return d.y; })
             .attr("dy", "-.35em")
             .attr("text-anchor", "middle")
             .text(function(d) { if (d.children) {return d.name;}; return d.name.split('\n').slice(1,3).join('\n'); })
